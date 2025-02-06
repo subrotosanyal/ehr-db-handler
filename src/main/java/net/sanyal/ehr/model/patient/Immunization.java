@@ -9,6 +9,8 @@ import net.sanyal.ehr.model.common.BaseEntity;
 import lombok.AllArgsConstructor;
 import java.time.LocalDate;
 
+import org.hibernate.envers.Audited;
+
 @Entity
 @Table(name = "immunizations")
 @Data
@@ -16,6 +18,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Audited
 public class Immunization extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

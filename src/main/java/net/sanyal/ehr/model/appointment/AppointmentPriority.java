@@ -1,5 +1,7 @@
 package net.sanyal.ehr.model.appointment;
 
+import org.hibernate.envers.Audited;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +17,7 @@ import net.sanyal.ehr.model.common.BaseEntity;
 @Entity
 @Table(name = "appointment_priorities")
 @EqualsAndHashCode(callSuper=false)
+@Audited
 public class AppointmentPriority extends BaseEntity {
 
     @Id

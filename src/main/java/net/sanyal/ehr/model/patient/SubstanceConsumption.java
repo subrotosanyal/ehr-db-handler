@@ -1,5 +1,7 @@
 package net.sanyal.ehr.model.patient;
 
+import org.hibernate.envers.Audited;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -15,6 +17,7 @@ import lombok.AllArgsConstructor;
 @EqualsAndHashCode(callSuper=false, exclude = {"patient"})
 @Entity
 @Table(name = "substance_consumptions")
+@Audited
 public class SubstanceConsumption extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

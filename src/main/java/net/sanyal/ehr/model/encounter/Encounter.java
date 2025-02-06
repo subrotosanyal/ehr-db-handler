@@ -10,6 +10,8 @@ import net.sanyal.ehr.model.practitioner.Practitioner;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import org.hibernate.envers.Audited;
+
 @Entity
 @Table(name = "encounter")
 @Data
@@ -18,6 +20,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = false)
+@Audited
 public class Encounter extends BaseEntity {
 
     @Id

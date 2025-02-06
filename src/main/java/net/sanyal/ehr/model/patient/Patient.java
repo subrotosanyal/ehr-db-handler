@@ -22,6 +22,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.envers.Audited;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,6 +31,7 @@ import java.util.List;
 @Builder(toBuilder = true)
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "patients")
+@Audited
 @JsonIdentityInfo(scope = Patient.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "patientId")
 public class Patient extends BaseEntity {
     @Id
@@ -48,6 +51,9 @@ public class Patient extends BaseEntity {
     private String purposeOfVisit;
 
     private String healthGoals;
+
+    @Builder.Default
+    private Boolean active = true;
 
     @NotNull(message = "Date of birth is required")
     @Past(message = "Date of birth must be in the past")

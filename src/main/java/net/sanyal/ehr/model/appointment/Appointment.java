@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import lombok.EqualsAndHashCode.Exclude;
 import net.sanyal.ehr.model.common.BaseEntity;
 import net.sanyal.ehr.model.patient.Patient;
 import net.sanyal.ehr.model.practitioner.Practitioner;
@@ -16,6 +15,8 @@ import net.sanyal.ehr.model.service.ServiceType;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.envers.Audited;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,6 +24,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "appointments")
 @EqualsAndHashCode(callSuper = false)
+@Audited
 @JsonIdentityInfo(scope = Appointment.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "appointmentId")
 public class Appointment extends BaseEntity {
 

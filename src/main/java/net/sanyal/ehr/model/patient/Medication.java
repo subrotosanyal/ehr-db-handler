@@ -1,5 +1,7 @@
 package net.sanyal.ehr.model.patient;
 
+import org.hibernate.envers.Audited;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Builder;
@@ -12,6 +14,7 @@ import lombok.AllArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Audited
 public class Medication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

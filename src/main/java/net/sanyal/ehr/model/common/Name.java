@@ -1,5 +1,7 @@
 package net.sanyal.ehr.model.common;
 
+import org.hibernate.envers.Audited;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -17,6 +19,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "names")
 @EqualsAndHashCode(callSuper=false)
+@Audited
 @JsonIdentityInfo(scope = Name.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "nameId")
 public class Name extends BaseEntity {
 

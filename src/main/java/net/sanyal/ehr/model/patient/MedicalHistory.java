@@ -7,6 +7,8 @@ import net.sanyal.ehr.model.common.BaseEntity;
 
 import java.util.List;
 
+import org.hibernate.envers.Audited;
+
 @Entity
 @Table(name = "medical_histories")
 @Getter
@@ -15,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper=false, exclude = {"patient"})
+@Audited
 public class MedicalHistory extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,7 @@
 package net.sanyal.ehr.model.common;
 
+import org.hibernate.envers.Audited;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "races")
 @EqualsAndHashCode(callSuper=false)
+@Audited
 public class Race extends BaseEntity {
 
     @Id

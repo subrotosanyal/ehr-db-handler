@@ -1,5 +1,7 @@
 package net.sanyal.ehr.model.patient;
 
+import org.hibernate.envers.Audited;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -20,6 +22,7 @@ import lombok.Builder;
 @Table(name = "insurance_details")
 @EqualsAndHashCode(callSuper=false, exclude = {"patient"})
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Audited
 public class InsuranceDetail extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

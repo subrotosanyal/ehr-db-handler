@@ -28,7 +28,12 @@ public class SerDeUtils {
             } else if (propertyType == java.time.LocalDate.class) {
                 wrapper.setPropertyValue(key, objectMapper.convertValue(value, java.time.LocalDate.class));
             } else if (propertyType == java.time.LocalDateTime.class) {
-                wrapper.setPropertyValue(key, objectMapper.convertValue(value, java.time.LocalDateTime.class));
+                if (value instanceof String) {
+                    LocalDateTime dateTime = LocalDateTime.parse((String) value, java.time.format.DateTimeFormatter.ISO_DATE_TIME);
+                    wrapper.setPropertyValue(key, dateTime);
+                } else {
+                    wrapper.setPropertyValue(key, objectMapper.convertValue(value, java.time.LocalDateTime.class));
+                }
             } else if (propertyType == List.class) {
                 handleListUpdates(objectMapper, wrapper, key, value);
             } else {
@@ -89,6 +94,6 @@ public class SerDeUtils {
 
     private static boolean isSimpleType(Class<?> type) {
         return type.isPrimitive() || type == String.class || Number.class.isAssignableFrom(type) ||
-                type == Boolean.class || type == java.util.Date.class || type == LocalDateTime.class;
+                type == Boolean.class || type == java.util.Date.class;
     }
 }

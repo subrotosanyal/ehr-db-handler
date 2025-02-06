@@ -21,6 +21,8 @@ import net.sanyal.ehr.model.common.Race;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.hibernate.envers.Audited;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,6 +30,7 @@ import java.util.List;
 @Builder(toBuilder = true)
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "practitioners")
+@Audited
 @JsonIdentityInfo(scope = Practitioner.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "practitionerId")
 public class Practitioner extends BaseEntity {
 
@@ -58,8 +61,9 @@ public class Practitioner extends BaseEntity {
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "ethnicity_id", referencedColumnName = "ethnicityId")
     private Ethnicity ethnicity;
-
-    private Boolean active;
+    
+    @Builder.Default
+    private Boolean active = true;
 
     private LocalDate effectiveFrom;
 
