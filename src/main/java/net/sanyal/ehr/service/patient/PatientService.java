@@ -1,16 +1,10 @@
 package net.sanyal.ehr.service.patient;
 
-import net.sanyal.ehr.db.repository.common.EthnicityRepository;
-import net.sanyal.ehr.db.repository.common.GenderRepository;
-import net.sanyal.ehr.db.repository.common.RaceRepository;
+import net.sanyal.ehr.aspect.log.Log;
 import net.sanyal.ehr.db.repository.patient.PatientRepository;
 import net.sanyal.ehr.db.specification.patient.PatientSpecifications;
 import net.sanyal.ehr.exception.ResourceNotFoundException;
-import net.sanyal.ehr.model.common.Ethnicity;
-import net.sanyal.ehr.model.common.Gender;
-import net.sanyal.ehr.model.common.Race;
 import net.sanyal.ehr.model.patient.Patient;
-import net.sanyal.ehr.service.util.SerDeUtils;
 
 import java.util.Map;
 
@@ -32,12 +26,6 @@ public class PatientService {
     @Autowired
     private PatientRepository patientRepository;
     @Autowired
-    private EthnicityRepository ethnicityRepository;
-    @Autowired
-    private GenderRepository genderRepository;
-    @Autowired
-    private RaceRepository raceRepository;
-    @Autowired
     private ObjectMapper objectMapper;
 
     public Page<Patient> getAllPatients(Pageable pageable) {
@@ -53,44 +41,18 @@ public class PatientService {
             patient.getSubstanceConsumptions()
                     .forEach(substanceConsumption -> substanceConsumption.setPatient(patient));
         }
-
-        if (null != patient.getEthnicity()) {
-            Ethnicity existingEthnicity = ethnicityRepository.findById(patient.getEthnicity().getEthnicityId())
-                    .orElseGet(() -> {
-                        log.warn("Ethnicity not found for patient {}", patient);
-                        return null;
-                    });
-            patient.setEthnicity(existingEthnicity);
-        }
-        if (null != patient.getGender()) {
-            Gender existingGender = genderRepository.findById(patient.getGender().getGenderId())
-                    .orElseGet(() -> {
-                        log.warn("Gender not found for patient {}", patient);
-                        return null;
-                    });
-            patient.setGender(existingGender);
-        }
-        if (null != patient.getRace()) {
-            Race existingRace = raceRepository.findById(patient.getRace().getRaceId())
-                    .orElseGet(() -> {
-                        log.warn("Race not found for patient {}", patient);
-                        return null;
-                    });
-
-            // Set the managed entities
-            patient.setRace(existingRace);
+        if (patient.getMedicalHistory() != null) {
+            patient.getMedicalHistory().setPatient(patient);
         }
         return patientRepository.saveAndFlush(patient);
     }
 
+    @Transactional
+    @Log
     public Patient updatePatient(Long id, Map<String, Object> updates) {
-        Patient patient = patientRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Patient not found"));
-        SerDeUtils.applyUpdates(objectMapper, patient, updates);
-        return patientRepository.saveAndFlush(patient);
+        Patient updatedPatient = objectMapper.convertValue(updates, Patient.class);
+        return patientRepository.saveAndFlush(updatedPatient);
     }
-
-    
 
     public Patient getPatientById(Long id) {
         return patientRepository.findById(id)
@@ -107,6 +69,7 @@ public class PatientService {
         return patientRepository.findAll(spec, pageable);
     }
 
+    @Log
     public void deletePatient(Long id) {
         patientRepository.deleteById(id);
     }

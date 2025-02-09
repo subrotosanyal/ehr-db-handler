@@ -23,9 +23,6 @@ public class MenstruationPregnancyRecord extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long recordId;
 
-    @Column(name = "patient_id")
-    private Long patientId;
-
     @Column(nullable = false)
     private String detail;
 }

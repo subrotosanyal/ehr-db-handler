@@ -19,6 +19,7 @@ import net.sanyal.ehr.model.common.Name;
 import net.sanyal.ehr.model.common.Race;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.envers.Audited;
@@ -78,6 +79,7 @@ public class Practitioner extends BaseEntity {
     @Builder.Default
     private ContactDetail contactDetail = new ContactDetail();
 
-    @OneToMany(mappedBy = "practitioner", cascade = CascadeType.REMOVE, orphanRemoval = true)
-    private List<Appointment> appointments;
+    @OneToMany(mappedBy = "practitioner", cascade = CascadeType.ALL)
+    @Builder.Default
+    private List<Appointment> appointments = new ArrayList<>();
 }

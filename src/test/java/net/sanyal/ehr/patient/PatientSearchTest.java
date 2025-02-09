@@ -36,52 +36,35 @@ public class PatientSearchTest extends BaseTest {
         @BeforeEach
         void setUp() {
                 patient1 = Patient.builder()
-                                .name(Name.builder().salutation("Mr.").firstName("John").lastName("Doe").build())
                                 .socialSecurityNumber("123-45-6789")
                                 .purposeOfVisit("Routine Checkup")
                                 .healthGoals("Maintain good health")
-                                .dateOfBirth(LocalDate.of(1990, 5, 20))
                                 .consent(true)
-                                .contactDetail(ContactDetail.builder()
-                                                .phoneNumber("111-222-3333")
-                                                .alternatePhoneNumber("444-555-6666")
-                                                .workPhoneNumber("777-888-9999")
-                                                .email("john.doe@example.com")
-                                                .workEmail("john.doe@work.com")
-                                                .address(Address.builder()
-                                                                .houseNumber("123")
-                                                                .street("Main St")
-                                                                .city("Springfield")
-                                                                .postalCode("12345")
-                                                                .build())
-                                                .build())
                                 .insuranceDetails(List.of(
                                                 InsuranceDetail.builder()
                                                                 .provider("HealthCare Inc.")
                                                                 .policyNumber("POL123")
                                                                 .build()))
                                 .build();
-
-                patient2 = Patient.builder()
-                                .name(Name.builder().salutation("Ms.").firstName("Jane").lastName("Smith").build())
-                                .socialSecurityNumber("987-65-4321")
+                patient1.setName(Name.builder().salutation("Mr.").firstName("John").lastName("Doe").build());
+                patient1.setDateOfBirth(LocalDate.of(1990, 5, 20));
+                patient1.setContactDetail(ContactDetail.builder()
+                                .phoneNumber("111-222-3333")
+                                .alternatePhoneNumber("444-555-6666")
+                                .workPhoneNumber("777-888-9999")
+                                .email("john.doe@example.com")
+                                .workEmail("john.doe@work.com")
+                                .address(Address.builder()
+                                                .houseNumber("123")
+                                                .street("Main St")
+                                                .city("Springfield")
+                                                .postalCode("12345")
+                                                .build())
+                                .build());
+                patient2 = Patient.builder().socialSecurityNumber("987-65-4321")
                                 .purposeOfVisit("Specialist Consultation")
                                 .healthGoals("Manage existing conditions")
-                                .dateOfBirth(LocalDate.of(1985, 11, 15))
                                 .consent(true)
-                                .contactDetail(ContactDetail.builder()
-                                                .phoneNumber("999-888-7777")
-                                                .alternatePhoneNumber("666-555-4444")
-                                                .workPhoneNumber("333-222-1111")
-                                                .email("jane.smith@example.com")
-                                                .workEmail("jane.smith@work.com")
-                                                .address(Address.builder()
-                                                                .houseNumber("456")
-                                                                .street("Oak St")
-                                                                .city("Riverside")
-                                                                .postalCode("54321")
-                                                                .build())
-                                                .build())
                                 .insuranceDetails(List.of(
                                                 InsuranceDetail.builder()
                                                                 .provider("SecondaryHealth Inc.")
@@ -89,6 +72,21 @@ public class PatientSearchTest extends BaseTest {
                                                                 .build()))
                                 .build();
 
+                patient2.setName(Name.builder().salutation("Ms.").firstName("Jane").lastName("Smith").build());
+                patient2.setDateOfBirth(LocalDate.of(1985, 11, 15));
+                patient2.setContactDetail(ContactDetail.builder()
+                                .phoneNumber("999-888-7777")
+                                .alternatePhoneNumber("666-555-4444")
+                                .workPhoneNumber("333-222-1111")
+                                .email("jane.smith@example.com")
+                                .workEmail("jane.smith@work.com")
+                                .address(Address.builder()
+                                                .houseNumber("456")
+                                                .street("Oak St")
+                                                .city("Riverside")
+                                                .postalCode("54321")
+                                                .build())
+                                .build());
                 // Save both patients
                 patientService.createPatient(patient1);
                 patientService.createPatient(patient2);

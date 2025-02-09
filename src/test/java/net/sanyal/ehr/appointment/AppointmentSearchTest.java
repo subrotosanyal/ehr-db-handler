@@ -36,13 +36,12 @@ public class AppointmentSearchTest extends BaseTest {
         @BeforeAll
         static void setupAppointments(@Autowired AppointmentService appointmentService) {
                 testPatient = Patient.builder()
-                                .name(Name.builder().salutation("Mr.").firstName("John").lastName("Doe").build())
                                 .socialSecurityNumber("123-45-6789")
-                                .gender(male)
-                                .race(asian)
-                                .ethnicity(other)
                                 .build();
-
+                testPatient.setName(Name.builder().salutation("Mr.").firstName("John").lastName("Doe").build());
+                testPatient.setGender(male);
+                testPatient.setRace(asian);
+                testPatient.setEthnicity(other);
                 testPractitioner = Practitioner.builder()
                                 .name(Name.builder().salutation("Dr.").firstName("Jane").lastName("Doe").build())
                                 .npi("NPI-12345")

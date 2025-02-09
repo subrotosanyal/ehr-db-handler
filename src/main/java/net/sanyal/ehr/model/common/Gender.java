@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "genders")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(of = "genderId", callSuper=false)
 @Audited
 public class Gender extends BaseEntity {
 

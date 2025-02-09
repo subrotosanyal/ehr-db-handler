@@ -29,24 +29,26 @@ public class PatientPaginationTest extends BaseTest {
 
     @BeforeAll
     static void setupPatients(@Autowired PatientService patientService) {
-        IntStream.rangeClosed(1, 50).forEach(i -> patientService.createPatient(
-                Patient.builder()
-                        .name(Name.builder().salutation("Mr.").firstName("John" + i).lastName("Doe" + i).build())
-                        .socialSecurityNumber(String.format("%03d-45-6789", i))
-                        .purposeOfVisit("Routine Checkup")
-                        .dateOfBirth(LocalDate.of(1990, 5, 20))
-                        .contactDetail(ContactDetail.builder()
-                                .phoneNumber("111-222-" + String.format("%04d", i))
-                                .email("john" + i + "@example.com")
-                                .address(Address.builder()
-                                        .houseNumber(String.valueOf(i))
-                                        .street("Main St")
-                                        .city("City" + i)
-                                        .build())
-                                .build())
-                        .build()));
+        IntStream.rangeClosed(1, 50).forEach(i -> createUniquePatient(patientService, i));
     }
 
+    private static Patient createUniquePatient(PatientService patientService, int uniqueIdentifier) {
+        Patient patient = new Patient();
+        patient.setName(Name.builder().salutation("Mr.").firstName("John" + uniqueIdentifier).lastName("Doe" + uniqueIdentifier).build());
+        patient.setSocialSecurityNumber(String.format("%03d-45-6789", uniqueIdentifier));
+        patient.setPurposeOfVisit("Routine Checkup");
+        patient.setDateOfBirth(LocalDate.of(1990, 5, 20));
+        patient.setContactDetail(ContactDetail.builder()
+                .phoneNumber("111-222-" + String.format("%04d", uniqueIdentifier))
+                .email("john" + uniqueIdentifier + "@example.com")
+                .address(Address.builder()
+                        .houseNumber(String.valueOf(uniqueIdentifier))
+                        .street("Main St")
+                        .city("City" + uniqueIdentifier)
+                        .build())
+                .build());
+        return patientService.createPatient(patient);
+    }
     @Test
     @DisplayName("Verify pagination with different page sizes")
     void verifyPagination() throws Exception {

@@ -1,9 +1,7 @@
 package net.sanyal.ehr.service.practitioner;
 
 import net.sanyal.ehr.db.repository.practitioner.PractitionerRepository;
-import net.sanyal.ehr.exception.ResourceNotFoundException;
 import net.sanyal.ehr.model.practitioner.Practitioner;
-import net.sanyal.ehr.service.util.SerDeUtils;
 
 import java.util.Map;
 
@@ -46,10 +44,8 @@ public class PractitionerService {
     }
 
     public Practitioner updatePractitioner(Long id, Map<String, Object> updates) {
-        Practitioner practitioner = practitionerRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Practitioner not found"));
-        SerDeUtils.applyUpdates(objectMapper, practitioner, updates);
-        return practitionerRepository.saveAndFlush(practitioner);
+        Practitioner updatedPractitioner = objectMapper.convertValue(updates, Practitioner.class);
+        return practitionerRepository.saveAndFlush(updatedPractitioner);
     }
 
     public void deletePractitioner(Long id) {

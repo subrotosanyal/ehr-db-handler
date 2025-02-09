@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import net.sanyal.ehr.db.repository.appointment.AppointmentRepository;
 import net.sanyal.ehr.exception.ResourceNotFoundException;
 import net.sanyal.ehr.model.appointment.Appointment;
-import net.sanyal.ehr.service.util.SerDeUtils;
 
 import java.util.Map;
 import java.util.Optional;
@@ -50,10 +49,8 @@ public class AppointmentService {
     }
 
     public Appointment updateAppointment(Long id, Map<String, Object> updates) {
-        Appointment appointment = appointmentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Appointment not found"));
-        SerDeUtils.applyUpdates(objectMapper, appointment, updates);
-        return appointmentRepository.saveAndFlush(appointment);
+        Appointment updatedAppointment = objectMapper.convertValue(updates, Appointment.class);
+        return appointmentRepository.saveAndFlush(updatedAppointment);
     }
 
     public void deleteAppointment(Long id) {

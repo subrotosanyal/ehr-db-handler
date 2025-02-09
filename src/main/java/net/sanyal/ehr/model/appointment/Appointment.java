@@ -50,13 +50,13 @@ public class Appointment extends BaseEntity {
 
     private String patientInstructions;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "patient_id", referencedColumnName = "patientId")
+    @ManyToOne
+    @JoinColumn(name = "patient_id", nullable = false)
     @ToString.Exclude
     private Patient patient;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "practitioner_id", referencedColumnName = "practitionerId")
+    @ManyToOne
+    @JoinColumn(name = "practitioner_id", nullable = false)
     @ToString.Exclude
     private Practitioner practitioner;
 

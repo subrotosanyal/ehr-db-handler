@@ -24,9 +24,6 @@ public class MedicalHistory extends BaseEntity {
     @Column(name = "medical_history_id")
     private Long historyId;
 
-    @Column(name = "patient_id", insertable = false, updatable = false)
-    private Long patientId;
-
     private String childhoodIllness;
     private String surgeries;
     private String historyBloodTransfusion;
@@ -39,19 +36,15 @@ public class MedicalHistory extends BaseEntity {
     private String currentSymptoms;
     private String healthGoals;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "medical_history_id")
     private List<Medication> medications;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "medical_history_id")
     private List<Immunization> immunizations;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "medical_history_id")
-    private List<SubstanceConsumption> substanceConsumptions;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "medical_history_id")
     private List<MenstruationPregnancyRecord> menstruationPregnancyRecords;
 

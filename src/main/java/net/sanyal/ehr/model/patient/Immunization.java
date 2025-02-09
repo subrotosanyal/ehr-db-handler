@@ -24,9 +24,6 @@ public class Immunization extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long immunizationId;
 
-    @Column(name = "patient_id")
-    private Long patientId;
-
     @Column(nullable = false)
     private String vaccineName;
 

@@ -39,14 +39,13 @@ public class AppointmentTest extends BaseTest {
         @BeforeEach
         public void setUp() {
                 Patient testPatient = Patient.builder()
-                                .name(Name.builder().salutation("Mr.").firstName("John").lastName("Doe").build())
                                 .socialSecurityNumber("123-45-6789")
-                                .gender(male)
-                                .race(asian)
-                                .ethnicity(other)
                                 .purposeOfVisit("Regular checkup")
                                 .build();
-
+                testPatient.setName(Name.builder().salutation("Mr.").firstName("John").lastName("Doe").build());
+                testPatient.setGender(male);
+                testPatient.setRace(asian);
+                testPatient.setEthnicity(other);
                 Practitioner testPractitioner = Practitioner.builder()
                                 .name(Name.builder().salutation("Dr.").firstName("Jane").lastName("Doe").build())
                                 .npi("NPI-12345")
@@ -86,17 +85,20 @@ public class AppointmentTest extends BaseTest {
         @AfterEach
         public void cleanup() {
                 log.info("Cleaning up all the resources/entities created for testing");
+                appointmentRepository.deleteAll();
                 patientRepository.deleteAll();
                 practitionerRepository.deleteAll();
-                appointmentRepository.deleteAll();
         }
 
         @Test
         public void shouldCreateAppointment() throws Exception {
                 Appointment newAppointment = Appointment.builder()
                                 .appointmentId(null)
-                                .patient(patientRepository.findById(testAppointment.getPatient().getPatientId()).orElseThrow())
-                                .practitioner(practitionerRepository.findById(testAppointment.getPractitioner().getPractitionerId()).orElseThrow())
+                                .patient(patientRepository.findById(testAppointment.getPatient().getPatientId())
+                                                .orElseThrow())
+                                .practitioner(practitionerRepository
+                                                .findById(testAppointment.getPractitioner().getPractitionerId())
+                                                .orElseThrow())
                                 .appointmentType(testAppointment.getAppointmentType())
                                 .priority(testAppointment.getPriority())
                                 .appointmentStatus(testAppointment.getAppointmentStatus())
