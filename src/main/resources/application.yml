@@ -12,6 +12,8 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
 logging:
   level:
@@ -25,3 +27,6 @@ web:
       allow-credentials: true
 cors:
   allowed-origins: ${CORS_ALLOWED_ORIGINS}
+liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml

@@ -2,12 +2,12 @@ plugins {
     id 'org.springframework.boot' version '3.1.1'
     id 'io.spring.dependency-management' version '1.1.0'
     id 'java'
+    id 'org.liquibase.gradle' version '2.2.0'  // Add the Liquibase Gradle plugin
 }
 
 group = 'net.sanyal.ehr'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '21'
-
 targetCompatibility = '21'
 
 repositories {
@@ -22,25 +22,27 @@ dependencies {
     implementation 'org.postgresql:postgresql'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
     implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
 
-
-    // Update Lombok to the latest version
+    // Lombok
     implementation 'org.projectlombok:lombok:1.18.30'
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
+    // Liquibase core dependency (for database migrations)
+    implementation 'org.liquibase:liquibase-core'
+    implementation 'org.liquibase.ext:liquibase-hibernate5:4.20.0'  // Liquibase Hibernate support
+
+    // Test dependencies
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    // VS Code needs explicit test runtime
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     // Testcontainers for PostgreSQL
     testImplementation 'org.testcontainers:testcontainers:1.19.3'
     testImplementation 'org.testcontainers:junit-jupiter:1.19.3'
     testImplementation 'org.testcontainers:postgresql:1.19.3'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
-    testImplementation 'org.projectlombok:lombok:1.18.30'
+
 }
 
 tasks.withType(JavaCompile) {
@@ -49,6 +51,20 @@ tasks.withType(JavaCompile) {
 }
 
 test {
-    useJUnitPlatform();
-    maxParallelForks = 1;
+    useJUnitPlatform()
+    maxParallelForks = 1
 }
+
+liquibase {
+    activities {
+        main {
+            changeLogFile 'src/main/resources/db/changelog/db.changelog-master.yaml'  // Changelog path
+            url 'jdbc:postgresql://localhost:5432/ehrdb'
+            username 'ehruser'
+            password 'ehrpassword'
+            driver 'org.postgresql.Driver'
+        }
+    }
+    runList = 'main'
+}
+

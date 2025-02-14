@@ -1,0 +1,3343 @@
+databaseChangeLog:
+- changeSet:
+    id: 1739196041526-1
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: addresses_pkey
+            name: address_id
+            startWith: 33
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: city
+            type: VARCHAR(255)
+        - column:
+            name: country
+            type: VARCHAR(255)
+        - column:
+            name: district
+            type: VARCHAR(255)
+        - column:
+            name: house_number
+            type: VARCHAR(255)
+        - column:
+            name: postal_code
+            type: VARCHAR(255)
+        - column:
+            name: province
+            type: VARCHAR(255)
+        - column:
+            name: street
+            type: VARCHAR(255)
+        tableName: addresses
+- changeSet:
+    id: 1739196041526-2
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: appointment_priorities_pkey
+            name: appointment_priority_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: appointment_priority_name
+            type: VARCHAR(255)
+        tableName: appointment_priorities
+- changeSet:
+    id: 1739196041526-3
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: appointment_statuses_pkey
+            name: appointment_status_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: appointment_status_name
+            type: VARCHAR(255)
+        tableName: appointment_statuses
+- changeSet:
+    id: 1739196041526-4
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: appointment_types_pkey
+            name: appointment_type_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: appointment_type_name
+            type: VARCHAR(255)
+        tableName: appointment_types
+- changeSet:
+    id: 1739196041526-5
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: appointments_pkey
+            name: appointment_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: actual_end_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: actual_start_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: additional_comments
+            type: VARCHAR(255)
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            name: location
+            type: VARCHAR(255)
+        - column:
+            name: patient_instructions
+            type: VARCHAR(255)
+        - column:
+            name: requested_end_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: requested_start_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: appointment_status_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: appointment_type_id
+            type: BIGINT
+        - column:
+            name: patient_id
+            type: BIGINT
+        - column:
+            name: practitioner_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: appointment_priority_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: service_category_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: service_type_id
+            type: BIGINT
+        tableName: appointments
+- changeSet:
+    id: 1739196041526-6
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: contact_details_pkey
+            name: contact_id
+            startWith: 33
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: alternate_phone_number
+            type: VARCHAR(255)
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: phone_number
+            type: VARCHAR(255)
+        - column:
+            name: work_email
+            type: VARCHAR(255)
+        - column:
+            name: work_phone_number
+            type: VARCHAR(255)
+        - column:
+            name: address_id
+            type: BIGINT
+        tableName: contact_details
+- changeSet:
+    id: 1739196041526-7
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: encounter_pkey
+            name: id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: end_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: external_id
+            type: VARCHAR(255)
+        - column:
+            name: length_of_stay
+            type: numeric(21)
+        - column:
+            name: location
+            type: VARCHAR(255)
+        - column:
+            name: start_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: appointment_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: encounter_type_id
+            type: BIGINT
+        - column:
+            name: parent_encounter_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: patient_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: practitioner_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: encounter_status_id
+            type: BIGINT
+        tableName: encounter
+- changeSet:
+    id: 1739196041526-8
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: encounter_statuses_pkey
+            name: encounter_status_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: encounter_status_name
+            type: VARCHAR(255)
+        tableName: encounter_statuses
+- changeSet:
+    id: 1739196041526-9
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: encounter_types_pkey
+            name: encounter_type_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: encounter_type_name
+            type: VARCHAR(255)
+        tableName: encounter_types
+- changeSet:
+    id: 1739196041526-10
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ethnicities_pkey
+            name: ethnicity_id
+            startWith: 4
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: ethnicity_name
+            type: VARCHAR(255)
+        tableName: ethnicities
+- changeSet:
+    id: 1739196041526-11
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: genders_pkey
+            name: gender_id
+            startWith: 4
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: gender_name
+            type: VARCHAR(255)
+        tableName: genders
+- changeSet:
+    id: 1739196041526-12
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: immunizations_pkey
+            name: immunization_id
+            startWith: 31
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: date_administered
+            type: date
+        - column:
+            name: patient_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: vaccine_name
+            type: VARCHAR(255)
+        - column:
+            name: medical_history_id
+            type: BIGINT
+        tableName: immunizations
+- changeSet:
+    id: 1739196041526-13
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: insurance_details_pkey
+            name: insurance_id
+            startWith: 35
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: coverage_details
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: policy_number
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: provider
+            type: VARCHAR(255)
+        - column:
+            name: patient_id
+            type: BIGINT
+        tableName: insurance_details
+- changeSet:
+    id: 1739196041526-14
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: medical_histories_pkey
+            name: medical_history_id
+            startWith: 33
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: allergies
+            type: VARCHAR(255)
+        - column:
+            name: changes
+            type: VARCHAR(255)
+        - column:
+            name: childhood_illness
+            type: VARCHAR(255)
+        - column:
+            name: current_symptoms
+            type: VARCHAR(255)
+        - column:
+            name: diet
+            type: VARCHAR(255)
+        - column:
+            name: exercise_routine
+            type: VARCHAR(255)
+        - column:
+            name: family_health_history
+            type: VARCHAR(255)
+        - column:
+            name: health_goals
+            type: VARCHAR(255)
+        - column:
+            name: history_blood_transfusion
+            type: VARCHAR(255)
+        - column:
+            name: mental_health_questions
+            type: VARCHAR(255)
+        - column:
+            name: patient_id
+            type: BIGINT
+        - column:
+            name: surgeries
+            type: VARCHAR(255)
+        tableName: medical_histories
+- changeSet:
+    id: 1739196041526-15
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: medications_pkey
+            name: medication_id
+            startWith: 3
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: dosage
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: frequency
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: patient_id
+            type: BIGINT
+        - column:
+            name: medical_history_id
+            type: BIGINT
+        tableName: medications
+- changeSet:
+    id: 1739196041526-16
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: menstruation_pregnancy_records_pkey
+            name: record_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: detail
+            type: VARCHAR(255)
+        - column:
+            name: patient_id
+            type: BIGINT
+        - column:
+            name: medical_history_id
+            type: BIGINT
+        tableName: menstruation_pregnancy_records
+- changeSet:
+    id: 1739196041526-17
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: names_pkey
+            name: name_id
+            startWith: 33
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: first_name
+            type: VARCHAR(255)
+        - column:
+            name: last_name
+            type: VARCHAR(255)
+        - column:
+            name: salutation
+            type: VARCHAR(255)
+        tableName: names
+- changeSet:
+    id: 1739196041526-18
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: patients_pkey
+            name: patient_id
+            startWith: 33
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: active
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+            name: consent
+            type: BOOLEAN
+        - column:
+            name: date_of_birth
+            type: date
+        - column:
+            name: health_goals
+            type: VARCHAR(255)
+        - column:
+            name: purpose_of_visit
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: social_security_number
+            type: VARCHAR(255)
+        - column:
+            name: contact_id
+            type: BIGINT
+        - column:
+            name: ethnicity_id
+            type: BIGINT
+        - column:
+            name: gender_id
+            type: BIGINT
+        - column:
+            name: medical_history_id
+            type: BIGINT
+        - column:
+            name: name_id
+            type: BIGINT
+        - column:
+            name: race_id
+            type: BIGINT
+        tableName: patients
+- changeSet:
+    id: 1739196041526-19
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: practitioners_pkey
+            name: practitioner_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: active
+            type: BOOLEAN
+        - column:
+            name: date_of_birth
+            type: date
+        - column:
+            name: effective_from
+            type: date
+        - column:
+            name: effective_until
+            type: date
+        - column:
+            name: license_number
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: npi
+            type: VARCHAR(255)
+        - column:
+            name: specialty
+            type: VARCHAR(255)
+        - column:
+            name: contact_id
+            type: BIGINT
+        - column:
+            name: ethnicity_id
+            type: BIGINT
+        - column:
+            name: gender_id
+            type: BIGINT
+        - column:
+            name: name_id
+            type: BIGINT
+        - column:
+            name: race_id
+            type: BIGINT
+        tableName: practitioners
+- changeSet:
+    id: 1739196041526-20
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: races_pkey
+            name: race_id
+            startWith: 4
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: race_name
+            type: VARCHAR(255)
+        tableName: races
+- changeSet:
+    id: 1739196041526-21
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: service_categories_pkey
+            name: service_category_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: service_category_name
+            type: VARCHAR(255)
+        tableName: service_categories
+- changeSet:
+    id: 1739196041526-22
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: service_types_pkey
+            name: service_type_id
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: service_type_name
+            type: VARCHAR(255)
+        tableName: service_types
+- changeSet:
+    id: 1739196041526-23
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: substance_consumptions_pkey
+            name: substance_id
+            startWith: 3
+            type: BIGINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: amount
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: frequency
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: type
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: patient_id
+            type: BIGINT
+        tableName: substance_consumptions
+- changeSet:
+    id: 1739196041526-24
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: appointment_priority_name
+        constraintName: uk_ulpcva0fd0uh3ijoan6bxem8
+        tableName: appointment_priorities
+- changeSet:
+    id: 1739196041526-25
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: appointment_status_name
+        constraintName: uk_40syc760haabmha80337s8yy3
+        tableName: appointment_statuses
+- changeSet:
+    id: 1739196041526-26
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: appointment_type_name
+        constraintName: uk_bg94unrfbq8cqyttvsg6bd0fy
+        tableName: appointment_types
+- changeSet:
+    id: 1739196041526-27
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: address_id
+        constraintName: uk_bd71emgucp1s5y75ynjnuccei
+        tableName: contact_details
+- changeSet:
+    id: 1739196041526-28
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: encounter_status_name
+        constraintName: uk_c7g45y75nh16isiwpc4ss8iwd
+        tableName: encounter_statuses
+- changeSet:
+    id: 1739196041526-29
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: encounter_type_name
+        constraintName: uk_ecu5nd240qvjep3dr333bhhu2
+        tableName: encounter_types
+- changeSet:
+    id: 1739196041526-30
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: ethnicity_name
+        constraintName: uk_f1x5abh55hq0b4hl7sq9r7hmi
+        tableName: ethnicities
+- changeSet:
+    id: 1739196041526-31
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: gender_name
+        constraintName: uk_i2jhtr7sscas9th7eedoqsnfx
+        tableName: genders
+- changeSet:
+    id: 1739196041526-32
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: medical_history_id
+        constraintName: uk_chxqvjk3flvp3188vxmycvc96
+        tableName: patients
+- changeSet:
+    id: 1739196041526-33
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: contact_id
+        constraintName: uk_cn7igljh9tdy79m29au9fafa4
+        tableName: patients
+- changeSet:
+    id: 1739196041526-34
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name_id
+        constraintName: uk_mkfuefqdqccfjjqxc1p7oh7a4
+        tableName: patients
+- changeSet:
+    id: 1739196041526-35
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: contact_id
+        constraintName: uk_1ds1qjj6m00yy4ujvewyoop5b
+        tableName: practitioners
+- changeSet:
+    id: 1739196041526-36
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: npi
+        constraintName: uk_2gm8lyprhvwvncacuasvmtrqq
+        tableName: practitioners
+- changeSet:
+    id: 1739196041526-37
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name_id
+        constraintName: uk_fdml1ur3cblvpfaxqenen5uxf
+        tableName: practitioners
+- changeSet:
+    id: 1739196041526-38
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: race_name
+        constraintName: uk_hprt2y2ddy4ugdrcefxt6c6cp
+        tableName: races
+- changeSet:
+    id: 1739196041526-39
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: service_category_name
+        constraintName: uk_jfrm00d278pd6eountxi1q8jp
+        tableName: service_categories
+- changeSet:
+    id: 1739196041526-40
+    author: subrotosanyal (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: service_type_name
+        constraintName: uk_7ho1s05yfibr9majj92niryp7
+        tableName: service_types
+- changeSet:
+    id: 1739196041526-41
+    author: subrotosanyal (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 50
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: revinfo_seq
+        startValue: 1
+- changeSet:
+    id: 1739196041526-42
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: address_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: city
+            type: VARCHAR(255)
+        - column:
+            name: country
+            type: VARCHAR(255)
+        - column:
+            name: district
+            type: VARCHAR(255)
+        - column:
+            name: house_number
+            type: VARCHAR(255)
+        - column:
+            name: postal_code
+            type: VARCHAR(255)
+        - column:
+            name: province
+            type: VARCHAR(255)
+        - column:
+            name: street
+            type: VARCHAR(255)
+        tableName: addresses_aud
+- changeSet:
+    id: 1739196041526-43
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: appointment_priority_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: appointment_priority_name
+            type: VARCHAR(255)
+        tableName: appointment_priorities_aud
+- changeSet:
+    id: 1739196041526-44
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: appointment_status_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: appointment_status_name
+            type: VARCHAR(255)
+        tableName: appointment_statuses_aud
+- changeSet:
+    id: 1739196041526-45
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: appointment_type_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: appointment_type_name
+            type: VARCHAR(255)
+        tableName: appointment_types_aud
+- changeSet:
+    id: 1739196041526-46
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: appointment_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: actual_end_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: actual_start_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: additional_comments
+            type: VARCHAR(255)
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            name: location
+            type: VARCHAR(255)
+        - column:
+            name: patient_instructions
+            type: VARCHAR(255)
+        - column:
+            name: requested_end_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: requested_start_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: appointment_status_id
+            type: BIGINT
+        - column:
+            name: appointment_type_id
+            type: BIGINT
+        - column:
+            name: patient_id
+            type: BIGINT
+        - column:
+            name: practitioner_id
+            type: BIGINT
+        - column:
+            name: appointment_priority_id
+            type: BIGINT
+        - column:
+            name: service_category_id
+            type: BIGINT
+        - column:
+            name: service_type_id
+            type: BIGINT
+        tableName: appointments_aud
+- changeSet:
+    id: 1739196041526-47
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: contact_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: alternate_phone_number
+            type: VARCHAR(255)
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: phone_number
+            type: VARCHAR(255)
+        - column:
+            name: work_email
+            type: VARCHAR(255)
+        - column:
+            name: work_phone_number
+            type: VARCHAR(255)
+        - column:
+            name: address_id
+            type: BIGINT
+        tableName: contact_details_aud
+- changeSet:
+    id: 1739196041526-48
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: end_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: external_id
+            type: VARCHAR(255)
+        - column:
+            name: length_of_stay
+            type: numeric(21)
+        - column:
+            name: location
+            type: VARCHAR(255)
+        - column:
+            name: start_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: appointment_id
+            type: BIGINT
+        - column:
+            name: encounter_type_id
+            type: BIGINT
+        - column:
+            name: parent_encounter_id
+            type: BIGINT
+        - column:
+            name: patient_id
+            type: BIGINT
+        - column:
+            name: practitioner_id
+            type: BIGINT
+        - column:
+            name: encounter_status_id
+            type: BIGINT
+        tableName: encounter_aud
+- changeSet:
+    id: 1739196041526-49
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: encounter_status_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: encounter_status_name
+            type: VARCHAR(255)
+        tableName: encounter_statuses_aud
+- changeSet:
+    id: 1739196041526-50
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: encounter_type_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: encounter_type_name
+            type: VARCHAR(255)
+        tableName: encounter_types_aud
+- changeSet:
+    id: 1739196041526-51
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: ethnicity_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: ethnicity_name
+            type: VARCHAR(255)
+        tableName: ethnicities_aud
+- changeSet:
+    id: 1739196041526-52
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: gender_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: gender_name
+            type: VARCHAR(255)
+        tableName: genders_aud
+- changeSet:
+    id: 1739196041526-53
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: immunization_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: date_administered
+            type: date
+        - column:
+            name: patient_id
+            type: BIGINT
+        - column:
+            name: vaccine_name
+            type: VARCHAR(255)
+        tableName: immunizations_aud
+- changeSet:
+    id: 1739196041526-54
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: insurance_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: coverage_details
+            type: VARCHAR(255)
+        - column:
+            name: policy_number
+            type: VARCHAR(255)
+        - column:
+            name: provider
+            type: VARCHAR(255)
+        - column:
+            name: patient_id
+            type: BIGINT
+        tableName: insurance_details_aud
+- changeSet:
+    id: 1739196041526-55
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: medical_history_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: allergies
+            type: VARCHAR(255)
+        - column:
+            name: changes
+            type: VARCHAR(255)
+        - column:
+            name: childhood_illness
+            type: VARCHAR(255)
+        - column:
+            name: current_symptoms
+            type: VARCHAR(255)
+        - column:
+            name: diet
+            type: VARCHAR(255)
+        - column:
+            name: exercise_routine
+            type: VARCHAR(255)
+        - column:
+            name: family_health_history
+            type: VARCHAR(255)
+        - column:
+            name: health_goals
+            type: VARCHAR(255)
+        - column:
+            name: history_blood_transfusion
+            type: VARCHAR(255)
+        - column:
+            name: mental_health_questions
+            type: VARCHAR(255)
+        - column:
+            name: patient_id
+            type: BIGINT
+        - column:
+            name: surgeries
+            type: VARCHAR(255)
+        tableName: medical_histories_aud
+- changeSet:
+    id: 1739196041526-56
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: medical_history_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: immunization_id
+            type: BIGINT
+        - column:
+            name: revtype
+            type: SMALLINT
+        tableName: medical_history_immunization_aud
+- changeSet:
+    id: 1739196041526-57
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: medical_history_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: medication_id
+            type: BIGINT
+        - column:
+            name: revtype
+            type: SMALLINT
+        tableName: medical_history_medication_aud
+- changeSet:
+    id: 1739196041526-58
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: medical_history_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: record_id
+            type: BIGINT
+        - column:
+            name: revtype
+            type: SMALLINT
+        tableName: medical_history_menstruation_pregnancy_record_aud
+- changeSet:
+    id: 1739196041526-59
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: medication_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: dosage
+            type: VARCHAR(255)
+        - column:
+            name: frequency
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: patient_id
+            type: BIGINT
+        tableName: medications_aud
+- changeSet:
+    id: 1739196041526-60
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: record_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: detail
+            type: VARCHAR(255)
+        - column:
+            name: patient_id
+            type: BIGINT
+        tableName: menstruation_pregnancy_records_aud
+- changeSet:
+    id: 1739196041526-61
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: name_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: first_name
+            type: VARCHAR(255)
+        - column:
+            name: last_name
+            type: VARCHAR(255)
+        - column:
+            name: salutation
+            type: VARCHAR(255)
+        tableName: names_aud
+- changeSet:
+    id: 1739196041526-62
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: patient_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: active
+            type: BOOLEAN
+        - column:
+            name: consent
+            type: BOOLEAN
+        - column:
+            name: date_of_birth
+            type: date
+        - column:
+            name: health_goals
+            type: VARCHAR(255)
+        - column:
+            name: purpose_of_visit
+            type: VARCHAR(255)
+        - column:
+            name: social_security_number
+            type: VARCHAR(255)
+        - column:
+            name: contact_id
+            type: BIGINT
+        - column:
+            name: ethnicity_id
+            type: BIGINT
+        - column:
+            name: gender_id
+            type: BIGINT
+        - column:
+            name: medical_history_id
+            type: BIGINT
+        - column:
+            name: name_id
+            type: BIGINT
+        - column:
+            name: race_id
+            type: BIGINT
+        tableName: patients_aud
+- changeSet:
+    id: 1739196041526-63
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: practitioner_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: active
+            type: BOOLEAN
+        - column:
+            name: date_of_birth
+            type: date
+        - column:
+            name: effective_from
+            type: date
+        - column:
+            name: effective_until
+            type: date
+        - column:
+            name: license_number
+            type: VARCHAR(255)
+        - column:
+            name: npi
+            type: VARCHAR(255)
+        - column:
+            name: specialty
+            type: VARCHAR(255)
+        - column:
+            name: contact_id
+            type: BIGINT
+        - column:
+            name: ethnicity_id
+            type: BIGINT
+        - column:
+            name: gender_id
+            type: BIGINT
+        - column:
+            name: name_id
+            type: BIGINT
+        - column:
+            name: race_id
+            type: BIGINT
+        tableName: practitioners_aud
+- changeSet:
+    id: 1739196041526-64
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: race_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: race_name
+            type: VARCHAR(255)
+        tableName: races_aud
+- changeSet:
+    id: 1739196041526-65
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: revinfo_pkey
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtstmp
+            type: BIGINT
+        tableName: revinfo
+- changeSet:
+    id: 1739196041526-66
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: service_category_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: service_category_name
+            type: VARCHAR(255)
+        tableName: service_categories_aud
+- changeSet:
+    id: 1739196041526-67
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: service_type_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: service_type_name
+            type: VARCHAR(255)
+        tableName: service_types_aud
+- changeSet:
+    id: 1739196041526-68
+    author: subrotosanyal (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: substance_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: rev
+            type: INTEGER
+        - column:
+            name: revtype
+            type: SMALLINT
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: migration_ongoing
+            type: BOOLEAN
+        - column:
+            name: source
+            type: VARCHAR(255)
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: amount
+            type: VARCHAR(255)
+        - column:
+            name: frequency
+            type: VARCHAR(255)
+        - column:
+            name: type
+            type: VARCHAR(255)
+        - column:
+            name: patient_id
+            type: BIGINT
+        tableName: substance_consumptions_aud
+- changeSet:
+    id: 1739196041526-69
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, address_id
+        constraintName: addresses_aud_pkey
+        tableName: addresses_aud
+- changeSet:
+    id: 1739196041526-70
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, appointment_priority_id
+        constraintName: appointment_priorities_aud_pkey
+        tableName: appointment_priorities_aud
+- changeSet:
+    id: 1739196041526-71
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, appointment_status_id
+        constraintName: appointment_statuses_aud_pkey
+        tableName: appointment_statuses_aud
+- changeSet:
+    id: 1739196041526-72
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, appointment_type_id
+        constraintName: appointment_types_aud_pkey
+        tableName: appointment_types_aud
+- changeSet:
+    id: 1739196041526-73
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, appointment_id
+        constraintName: appointments_aud_pkey
+        tableName: appointments_aud
+- changeSet:
+    id: 1739196041526-74
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, contact_id
+        constraintName: contact_details_aud_pkey
+        tableName: contact_details_aud
+- changeSet:
+    id: 1739196041526-75
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, id
+        constraintName: encounter_aud_pkey
+        tableName: encounter_aud
+- changeSet:
+    id: 1739196041526-76
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, encounter_status_id
+        constraintName: encounter_statuses_aud_pkey
+        tableName: encounter_statuses_aud
+- changeSet:
+    id: 1739196041526-77
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, encounter_type_id
+        constraintName: encounter_types_aud_pkey
+        tableName: encounter_types_aud
+- changeSet:
+    id: 1739196041526-78
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, ethnicity_id
+        constraintName: ethnicities_aud_pkey
+        tableName: ethnicities_aud
+- changeSet:
+    id: 1739196041526-79
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, gender_id
+        constraintName: genders_aud_pkey
+        tableName: genders_aud
+- changeSet:
+    id: 1739196041526-80
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, immunization_id
+        constraintName: immunizations_aud_pkey
+        tableName: immunizations_aud
+- changeSet:
+    id: 1739196041526-81
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, insurance_id
+        constraintName: insurance_details_aud_pkey
+        tableName: insurance_details_aud
+- changeSet:
+    id: 1739196041526-82
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, medical_history_id
+        constraintName: medical_histories_aud_pkey
+        tableName: medical_histories_aud
+- changeSet:
+    id: 1739196041526-83
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: medical_history_id, rev, immunization_id
+        constraintName: medical_history_immunization_aud_pkey
+        tableName: medical_history_immunization_aud
+- changeSet:
+    id: 1739196041526-84
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: medical_history_id, rev, medication_id
+        constraintName: medical_history_medication_aud_pkey
+        tableName: medical_history_medication_aud
+- changeSet:
+    id: 1739196041526-85
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: medical_history_id, rev, record_id
+        constraintName: medical_history_menstruation_pregnancy_record_aud_pkey
+        tableName: medical_history_menstruation_pregnancy_record_aud
+- changeSet:
+    id: 1739196041526-86
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, medication_id
+        constraintName: medications_aud_pkey
+        tableName: medications_aud
+- changeSet:
+    id: 1739196041526-87
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, record_id
+        constraintName: menstruation_pregnancy_records_aud_pkey
+        tableName: menstruation_pregnancy_records_aud
+- changeSet:
+    id: 1739196041526-88
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, name_id
+        constraintName: names_aud_pkey
+        tableName: names_aud
+- changeSet:
+    id: 1739196041526-89
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, patient_id
+        constraintName: patients_aud_pkey
+        tableName: patients_aud
+- changeSet:
+    id: 1739196041526-90
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, practitioner_id
+        constraintName: practitioners_aud_pkey
+        tableName: practitioners_aud
+- changeSet:
+    id: 1739196041526-91
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, race_id
+        constraintName: races_aud_pkey
+        tableName: races_aud
+- changeSet:
+    id: 1739196041526-92
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, service_category_id
+        constraintName: service_categories_aud_pkey
+        tableName: service_categories_aud
+- changeSet:
+    id: 1739196041526-93
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, service_type_id
+        constraintName: service_types_aud_pkey
+        tableName: service_types_aud
+- changeSet:
+    id: 1739196041526-94
+    author: subrotosanyal (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: rev, substance_id
+        constraintName: substance_consumptions_aud_pkey
+        tableName: substance_consumptions_aud
+- changeSet:
+    id: 1739196041526-95
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: practitioner_id
+        baseTableName: appointments
+        constraintName: fk1chsqxpdms5uf0acmm6fe1ib8
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: practitioner_id
+        referencedTableName: practitioners
+        validate: true
+- changeSet:
+    id: 1739196041526-96
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ethnicity_id
+        baseTableName: practitioners
+        constraintName: fk2twcopykvr65umw7q51k0o8l7
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: ethnicity_id
+        referencedTableName: ethnicities
+        validate: true
+- changeSet:
+    id: 1739196041526-97
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: patient_id
+        baseTableName: insurance_details
+        constraintName: fk35tkw5nyg3vys13s5shbb2a7j
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: patient_id
+        referencedTableName: patients
+        validate: true
+- changeSet:
+    id: 1739196041526-98
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: service_type_id
+        baseTableName: appointments
+        constraintName: fk36trunt9fi7dhxxb4cqegyp5u
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: service_type_id
+        referencedTableName: service_types
+        validate: true
+- changeSet:
+    id: 1739196041526-99
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: gender_id
+        baseTableName: practitioners
+        constraintName: fk4n3i0jhpdl5figylfc4s16ng5
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: gender_id
+        referencedTableName: genders
+        validate: true
+- changeSet:
+    id: 1739196041526-100
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: contact_details_aud
+        constraintName: fk4t3ivoeq39ua0bwk0xbiarmqq
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-101
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: appointment_type_id
+        baseTableName: appointments
+        constraintName: fk4w02y7li81c7pqo2bs8r21nfp
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: appointment_type_id
+        referencedTableName: appointment_types
+        validate: true
+- changeSet:
+    id: 1739196041526-102
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: patients_aud
+        constraintName: fk55vtoovcgiiere19m663h5vwd
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-103
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: addresses_aud
+        constraintName: fk6mk9kq602r09b8m1t10w1l9ub
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-104
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: races_aud
+        constraintName: fk6ovchp7e7lkwce4f5urg2kqs3
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-105
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: service_categories_aud
+        constraintName: fk6swo5njr54adhwcmpst4ogv94
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-106
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: appointment_status_id
+        baseTableName: appointments
+        constraintName: fk6xtents2f0wy3at13udki231l
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: appointment_status_id
+        referencedTableName: appointment_statuses
+        validate: true
+- changeSet:
+    id: 1739196041526-107
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: practitioner_id
+        baseTableName: encounter
+        constraintName: fk7c235fqe2b1b7gphfoq0yhhbh
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: practitioner_id
+        referencedTableName: practitioners
+        validate: true
+- changeSet:
+    id: 1739196041526-108
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: race_id
+        baseTableName: patients
+        constraintName: fk7e3ctdfry0ndjf0sjum6jt1gh
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: race_id
+        referencedTableName: races
+        validate: true
+- changeSet:
+    id: 1739196041526-109
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: appointment_types_aud
+        constraintName: fk7kn0ma6r1n4683he4pjoj7j47
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-110
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: practitioners_aud
+        constraintName: fk7kpuf54ivpq72vkvqri4d9ml2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-111
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: contact_id
+        baseTableName: patients
+        constraintName: fk8aytng5qgf9l8id98vouknf8b
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: contact_id
+        referencedTableName: contact_details
+        validate: true
+- changeSet:
+    id: 1739196041526-112
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: patient_id
+        baseTableName: appointments
+        constraintName: fk8exap5wmg8kmb1g1rx3by21yt
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: patient_id
+        referencedTableName: patients
+        validate: true
+- changeSet:
+    id: 1739196041526-113
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: appointment_statuses_aud
+        constraintName: fk9365a6llgsc60a04jj5rhn0o6
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-114
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: immunizations_aud
+        constraintName: fk9xerlg65p6ljb9btwm1fkgm3o
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-115
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: medical_history_menstruation_pregnancy_record_aud
+        constraintName: fka5u8s6hqdl9bm0dwemrlkbjqs
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-116
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: patient_id
+        baseTableName: substance_consumptions
+        constraintName: fkafp5c8317evbmckl0rtn9huvl
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: patient_id
+        referencedTableName: patients
+        validate: true
+- changeSet:
+    id: 1739196041526-117
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ethnicity_id
+        baseTableName: patients
+        constraintName: fkar05shqvuo5nah02gnqmv7n1j
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: ethnicity_id
+        referencedTableName: ethnicities
+        validate: true
+- changeSet:
+    id: 1739196041526-118
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: medical_history_medication_aud
+        constraintName: fkbxykqjx08uhyytoh5fq3nt83f
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-119
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: medical_history_id
+        baseTableName: patients
+        constraintName: fkcqyuegsysqevo985p7xnsy2q6
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: medical_history_id
+        referencedTableName: medical_histories
+        validate: true
+- changeSet:
+    id: 1739196041526-120
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: appointment_id
+        baseTableName: encounter
+        constraintName: fkd4x98nb43b59lc93vk6gy2d1t
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: appointment_id
+        referencedTableName: appointments
+        validate: true
+- changeSet:
+    id: 1739196041526-121
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: name_id
+        baseTableName: patients
+        constraintName: fkd8ld47j2inlxbal1vnr29dsfa
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: name_id
+        referencedTableName: names
+        validate: true
+- changeSet:
+    id: 1739196041526-122
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: encounter_type_id
+        baseTableName: encounter
+        constraintName: fkdyoj97618cy05ys95t8464rwu
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: encounter_type_id
+        referencedTableName: encounter_types
+        validate: true
+- changeSet:
+    id: 1739196041526-123
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: medical_history_id
+        baseTableName: immunizations
+        constraintName: fkervh04v8gnn6t4pufjgeop7r2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: medical_history_id
+        referencedTableName: medical_histories
+        validate: true
+- changeSet:
+    id: 1739196041526-124
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: service_types_aud
+        constraintName: fkgtd0ic0kccfrqafbvpqb0te2w
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-125
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: race_id
+        baseTableName: practitioners
+        constraintName: fki2jhvnwsbkvgkernu0wqpk812
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: race_id
+        referencedTableName: races
+        validate: true
+- changeSet:
+    id: 1739196041526-126
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: insurance_details_aud
+        constraintName: fkjifpkqgeyqn6qmc95h43n770s
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-127
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: name_id
+        baseTableName: practitioners
+        constraintName: fkjlggo9qxe8elbpujaalkxwopq
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: name_id
+        referencedTableName: names
+        validate: true
+- changeSet:
+    id: 1739196041526-128
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: genders_aud
+        constraintName: fkkde3p5y9xakkifkoh08l5eia8
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-129
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: medical_histories_aud
+        constraintName: fkkdpmd17ef1n38xtn7rumol1mq
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-130
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: names_aud
+        constraintName: fkku1u9n2rtprjliw5ocxmppd5b
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-131
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: appointments_aud
+        constraintName: fkl0sa2px8qqyevviu9fil921jf
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-132
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: substance_consumptions_aud
+        constraintName: fklfua3aw5hk9u4j0jwviyp44va
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-133
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: gender_id
+        baseTableName: patients
+        constraintName: fkmgi0dhjqora9ka1mpqk1cgkgo
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: gender_id
+        referencedTableName: genders
+        validate: true
+- changeSet:
+    id: 1739196041526-134
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: encounter_aud
+        constraintName: fkmj2nbibrgt4apb7o2mhna4oho
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-135
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: medications_aud
+        constraintName: fkmmdk5n9ovsfmqagwopa662ary
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-136
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: appointment_priority_id
+        baseTableName: appointments
+        constraintName: fkn4bnfkhjt0he9hmiojmyw7ias
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: appointment_priority_id
+        referencedTableName: appointment_priorities
+        validate: true
+- changeSet:
+    id: 1739196041526-137
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: medical_history_immunization_aud
+        constraintName: fknarpktk74awtsncyt2nyy3cxu
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-138
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: ethnicities_aud
+        constraintName: fknugdrehhslqqg3etekxwh5d1n
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-139
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: medical_history_id
+        baseTableName: menstruation_pregnancy_records
+        constraintName: fknuxcxqn0c102dg3ml26rc99qp
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: medical_history_id
+        referencedTableName: medical_histories
+        validate: true
+- changeSet:
+    id: 1739196041526-140
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: encounter_statuses_aud
+        constraintName: fknve1w6u6ffvlxxkccov73rbeh
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-141
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: encounter_types_aud
+        constraintName: fkp7dbt4i6nbeb30i6hcu7gr6bl
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-142
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: medical_history_id
+        baseTableName: medications
+        constraintName: fkp7oksxpk9egomgv5vg2we5obp
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: medical_history_id
+        referencedTableName: medical_histories
+        validate: true
+- changeSet:
+    id: 1739196041526-143
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: patient_id
+        baseTableName: encounter
+        constraintName: fkpqyns08cu9lfmqe9qgt066rlm
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: patient_id
+        referencedTableName: patients
+        validate: true
+- changeSet:
+    id: 1739196041526-144
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: address_id
+        baseTableName: contact_details
+        constraintName: fkpxi65d7f8opp4798j1kgkf2hv
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: address_id
+        referencedTableName: addresses
+        validate: true
+- changeSet:
+    id: 1739196041526-145
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: parent_encounter_id
+        baseTableName: encounter
+        constraintName: fkq5s1wsnb4jjookg16wmlwew2p
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: encounter
+        validate: true
+- changeSet:
+    id: 1739196041526-146
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: menstruation_pregnancy_records_aud
+        constraintName: fkqdafw5mlwvhneq0dfbv16aicg
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+- changeSet:
+    id: 1739196041526-147
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: encounter_status_id
+        baseTableName: encounter
+        constraintName: fkqo3ukc24vuc0qsw46etextc2b
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: encounter_status_id
+        referencedTableName: encounter_statuses
+        validate: true
+- changeSet:
+    id: 1739196041526-148
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: contact_id
+        baseTableName: practitioners
+        constraintName: fkqr7jqymp3rb3arepkg0wbdfcp
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: contact_id
+        referencedTableName: contact_details
+        validate: true
+- changeSet:
+    id: 1739196041526-149
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: service_category_id
+        baseTableName: appointments
+        constraintName: fkrm8oplw70wxkie6ipy5sphm2i
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: service_category_id
+        referencedTableName: service_categories
+        validate: true
+- changeSet:
+    id: 1739196041526-150
+    author: subrotosanyal (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: rev
+        baseTableName: appointment_priorities_aud
+        constraintName: fkrw0mowqctk1wrhd0d29p39f0x
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: rev
+        referencedTableName: revinfo
+        validate: true
+
