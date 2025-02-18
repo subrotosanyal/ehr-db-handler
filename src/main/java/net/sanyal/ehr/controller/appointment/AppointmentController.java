@@ -1,5 +1,6 @@
 package net.sanyal.ehr.controller.appointment;
 
+import net.sanyal.ehr.model.patient.Patient;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -24,6 +25,10 @@ public class AppointmentController {
         this.appointmentService = appointmentService;
     }
 
+    @GetMapping
+    public Page<Appointment> getAllAppointments(Pageable pageable) {
+        return appointmentService.getAllAppointments(pageable);
+    }
     @PostMapping
     public ResponseEntity<Appointment> createAppointment(@RequestBody Appointment appointment) {
         return ResponseEntity.ok(appointmentService.createAppointment(appointment));

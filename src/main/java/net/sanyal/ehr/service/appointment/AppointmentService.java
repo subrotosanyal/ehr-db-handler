@@ -32,6 +32,9 @@ public class AppointmentService {
     @Autowired
     private PractitionerRepository practitionerRepository;
 
+    public Page<Appointment> getAllAppointments(Pageable pageable) {
+        return appointmentRepository.findAll(pageable);
+    }
     public Appointment createAppointment(Appointment appointment) {
         Patient managedPatient = patientRepository.findById(appointment.getPatient().getPatientId())
                 .orElseThrow(() -> new ResourceNotFoundException("Patient not found"));
